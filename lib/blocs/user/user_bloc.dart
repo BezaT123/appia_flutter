@@ -6,22 +6,19 @@ import 'package:meta/meta.dart';
 
 import 'package:appia/blocs/user/user_event.dart';
 import 'package:appia/blocs/user/user_state.dart';
-import 'package:appia/models/User.dart';
+import 'package:appia/models/user.dart';
 
 import 'package:appia/repository/repository.dart';
 
 class UserBloc extends Bloc<UserEvent, UserState> {
   final UserRepository userRepository;
- 
+
   UserBloc(this.userRepository) : super(UserLoading());
 
-  Stream<UserState> mapEventToState(UserEvent event) async* {  
-
-     if (event is SearchUserRequested) {
+  Stream<UserState> mapEventToState(UserEvent event) async* {
+    if (event is SearchUserRequested) {
       yield* _mapAccountSearchUserRequested(event);
-    }
-    
-    else {
+    } else {
       yield UserLoadFailure();
     }
   }
@@ -35,6 +32,5 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     } catch (_) {
       yield UserLoadFailure();
     }
-  }}
-
- 
+  }
+}

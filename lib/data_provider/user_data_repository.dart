@@ -15,6 +15,6 @@ class UserDataProvider {
 
   Future<User> searchUser(String username) async {
     List<String> a = [];
-    return User(username: username, id: "4");
+    return User(username, "4");
   }
 }

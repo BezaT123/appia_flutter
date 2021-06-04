@@ -1,4 +1,4 @@
-import 'package:appia/blocs/bloc/room_bloc.dart';
+import 'package:appia/blocs/room/room_bloc.dart';
 import 'package:appia/blocs/message/message_bloc.dart';
 import 'package:appia/models/room.dart';
 import 'package:appia/models/text_message.dart';

@@ -14,16 +14,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ">=0.13.3 <1.0.0"
   flutter_bloc: ">=7.0.0 <8.0.0"
-  
   app_usage: ^1.2.0
-  
   email_validator: '^1.0.6'
-
   carousel_slider: ^3.0.0
-  
-  shared_preferences: ^0.5.12+4
   mime: ^1.0.0
-
   equatable: ^1.2.6
   web_socket_channel: ">=2.1.0 <3.0.0"
   json_serializable: ^4.1.3

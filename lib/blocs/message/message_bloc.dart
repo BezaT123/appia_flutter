@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:appia/AppiaData.dart';
-import 'package:appia/models/Message.dart';
 import 'package:appia/models/text_message.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';

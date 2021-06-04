@@ -1,6 +1,6 @@
 import 'package:appia/blocs/message/message_bloc.dart';
 import 'package:appia/blocs/room/room_bloc.dart';
-import 'package:appia/models/Message.dart';
+import 'package:appia/models/models.dart';
 import 'package:appia/models/room.dart';
 import 'package:appia/models/text_message.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +82,7 @@ class UnseenText extends StatelessWidget {
   Widget build(BuildContext context) {
     var text = room.entries[0];
     //how do you cast in golang
-    TextMessage lastMessage = TextMessage(text);
+    TextMessage lastMessage = text as TextMessage;
 
     return GestureDetector(
       onTap: () {

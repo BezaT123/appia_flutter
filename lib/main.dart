@@ -1,10 +1,10 @@
 // @dart=2.9
 import 'package:appia/appia.dart';
-import 'package:appia/screens/ChatRoom.dart';
 import 'package:appia/screens/HomePage.dart';
-import 'package:appia/screens/Search.dart';
 import 'package:appia/screens/appia_route.dart';
 import 'package:flutter/material.dart';
+
+import 'models/user.dart';
 
 void main() {
   runApp(MyApp());

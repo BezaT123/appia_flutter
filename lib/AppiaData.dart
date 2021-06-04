@@ -3,8 +3,6 @@ import 'package:appia/models/room.dart';
 import 'package:appia/models/user.dart';
 import 'package:appia/models/text_message.dart';
 
-import 'models/Message.dart';
-
 class AppiaData {
   static List<Room> chatRoom = [
     Room(RoomType.personalChat, [user1, user2], messages_eg1),
