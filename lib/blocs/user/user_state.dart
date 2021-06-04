@@ -18,3 +18,12 @@ class UserLoadSuccess extends UserState {
 }
 
 class UserLoadFailure extends UserState {}
+
+class UsersLoadSuccess extends UserState {
+  final List<User> users;
+
+  UsersLoadSuccess([this.users = const []]);
+
+  @override
+  List<Object> get props => [users];
+}

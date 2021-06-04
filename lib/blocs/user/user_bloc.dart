@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:appia/AppiaData.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // import 'blocs.dart';
@@ -27,8 +28,9 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       SearchUserRequested event) async* {
     yield UserLoading();
     try {
-      final user = await userRepository.searchUser(event.username);
-      yield UserLoadSuccess(user: user);
+      //final user = await userRepository.searchUser(event.username);
+      final users = AppiaData.users;
+      yield UsersLoadSuccess(users);
     } catch (_) {
       yield UserLoadFailure();
     }

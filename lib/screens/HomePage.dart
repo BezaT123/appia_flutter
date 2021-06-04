@@ -87,6 +87,7 @@ class UnseenText extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).pushNamed(ChatRoom.routeName, arguments: room);
+        print("Trying to access chatroom");
       },
       child: Container(
         height: MediaQuery.of(context).size.width * 0.2,
@@ -105,7 +106,8 @@ class UnseenText extends StatelessWidget {
                   shape: BoxShape.circle,
                 ),
                 child: Center(
-                    child: Text("${lastMessage.authorUsername.toUpperCase()}")),
+                    child:
+                        Text("${lastMessage.authorUsername[0].toUpperCase()}")),
               ),
             ),
             Expanded(

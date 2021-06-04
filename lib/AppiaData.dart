@@ -78,8 +78,10 @@ class AppiaData {
         authorUsername: "Barbie",
         timestamp: DateTime.now()),
   ];
+
   static User user1 = User("Will", "2");
   static User user2 = User("Jada", "7");
   static User user3 = User("Ken", "6");
   static User user4 = User("Barbie", "8");
+  static List<User> users = [user1, user2, user3, user4];
 }

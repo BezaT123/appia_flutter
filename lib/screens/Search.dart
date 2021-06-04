@@ -1,3 +1,4 @@
+import 'package:appia/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,18 +31,17 @@ class Search extends StatelessWidget {
             },
           ),
         ),
-        body: BlocBuilder<UserBloc, UserState>(
-          builder: (context, state) => state is UserLoadSuccess
-              ? ListView.builder(
-                  itemCount: ts.searchList.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(state.user.username.substring(0, 1)),
-                      subtitle: Text(state.user.username),
-                    );
-                  })
-              : Text(''),
-        ),
+        body: BlocBuilder<UserBloc, UserState>(builder: (context, state) {
+          if (state is UsersLoadSuccess) {
+            List<User> users = state.users;
+            return ListView.builder(
+                itemCount: users.length,
+                itemBuilder: (context, index) {
+                  return SearchUserItem(user: users[index]);
+                });
+          }
+          return Text('');
+        }),
       ),
     );
   }
@@ -56,4 +56,51 @@ class SearchItem {
   final String username;
 
   SearchItem(this.username);
+}
+
+class SearchUserItem extends StatelessWidget {
+  User user;
+  SearchUserItem({required this.user});
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Room room = Room(RoomType.personalChat, [user, MyApp.currentUser], []);
+        Navigator.of(context).pushNamed(ChatRoom.routeName, arguments: room);
+      },
+      child: Container(
+        height: MediaQuery.of(context).size.width * 0.2,
+        child: Row(
+          children: [
+            Expanded(
+              flex: 2,
+              child: Container(
+                constraints: BoxConstraints(
+                    maxHeight: 50.0,
+                    maxWidth: 50.0,
+                    minWidth: 50.0,
+                    minHeight: 50.0),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  shape: BoxShape.circle,
+                ),
+                child: Center(child: Text("${user.username[0].toUpperCase()}")),
+              ),
+            ),
+            Expanded(
+              flex: 8,
+              child: Container(
+                margin: EdgeInsets.only(left: 5),
+                decoration: BoxDecoration(
+                    border: Border(
+                  bottom: BorderSide(color: Colors.blueAccent),
+                )),
+                child: Text("${user.username}"),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
 }
